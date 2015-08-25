@@ -21,6 +21,7 @@ static void update_time() {
   // Write the current hours and minutes into the buffer
   if(clock_is_24h_style() == true) { strftime(hbuffer, sizeof("00"), "%H", tick_time); } 
   else { strftime(hbuffer, sizeof("00"), "%I", tick_time); }
+  // Remove trailing zero
   if (hbuffer[0] == '0') 
     memmove(hbuffer, hbuffer+1, strlen(hbuffer));
   text_layer_set_text(hour_layer, hbuffer);
@@ -34,7 +35,7 @@ static void update_time() {
     strcpy(textten, "");
     switch (minutes) {
       case 0 :
-        strcpy(textone, "");
+        strcpy(textone, "o 'clock");
         break;
       case 1 :
         strcpy(textone, " one");
@@ -174,17 +175,26 @@ void handle_init(void) {
   my_window = window_create();
 
   s_background_layer = bitmap_layer_create(GRect(0, 0, 144, 168));
-  s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_ONEPLUS_BACKGROUND_BW);
+  #ifdef PBL_COLOR
+    s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_ONEPLUS_BACKGROUND_COLOR);
+  #else
+    s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_ONEPLUS_BACKGROUND_BW);
+  #endif
   bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
   bitmap_layer_set_background_color(s_background_layer, GColorBlack);
   layer_add_child(window_get_root_layer(my_window), bitmap_layer_get_layer(s_background_layer));
   
   hour_layer   = text_layer_create(GRect(32, 35, 80, 70));
-  minute_layer_1 = text_layer_create(GRect(0, 95, 144, 35));
+  minute_layer_1 = text_layer_create(GRect(4, 95, 140, 35));
   minute_layer_2 = text_layer_create(GRect(0, 125, 144, 35));
   text_layer_set_text_color(hour_layer, GColorWhite);
-  text_layer_set_text_color(minute_layer_1, GColorWhite);
-  text_layer_set_text_color(minute_layer_2, GColorWhite);
+  #ifdef PBL_COLOR
+    text_layer_set_text_color(minute_layer_1, GColorLightGray);
+    text_layer_set_text_color(minute_layer_2, GColorLightGray);
+  #else  
+    text_layer_set_text_color(minute_layer_1, GColorWhite);
+    text_layer_set_text_color(minute_layer_2, GColorWhite);
+  #endif
   text_layer_set_background_color(hour_layer,GColorClear);
   text_layer_set_background_color(minute_layer_1,GColorClear);
   text_layer_set_background_color(minute_layer_2,GColorClear);

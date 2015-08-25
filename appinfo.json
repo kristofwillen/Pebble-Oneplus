@@ -9,6 +9,11 @@
     "resources": {
         "media": [
             {
+                "file": "images/oneplus-color.png",
+                "name": "IMAGE_ONEPLUS_BACKGROUND_COLOR",
+                "type": "png"
+            },
+            {
                 "file": "images/oneplus-bw.png",
                 "name": "IMAGE_ONEPLUS_BACKGROUND_BW",
                 "type": "png"
