@@ -1,0 +1,40 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "kristof.willen@gmail.com",
+    "longName": "Oneplus Logo",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/oneplus-bw.png",
+                "name": "IMAGE_ONEPLUS_BACKGROUND_BW",
+                "type": "png"
+            },
+            {
+                "file": "fonts/Lato-Regular.ttf",
+                "name": "FONT_LATO_REGULAR_24",
+                "type": "font"
+            },
+            {
+                "characterRegex": "[0-9]",
+                "file": "fonts/OCRAEXT.TTF",
+                "name": "FONT_OCRA_EXTENDED_36",
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "Oneplus Logo",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
+    "uuid": "23e9d171-efb9-46fc-926a-ea5c926027c0",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
