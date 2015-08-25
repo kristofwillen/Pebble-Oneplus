@@ -9,6 +9,12 @@
     "resources": {
         "media": [
             {
+                "file": "images/oneplus-logo.png",
+                "menuIcon": true,
+                "name": "IMAGE_APP_LOGO",
+                "type": "png"
+            },
+            {
                 "file": "images/oneplus-color.png",
                 "name": "IMAGE_ONEPLUS_BACKGROUND_COLOR",
                 "type": "png"
@@ -38,7 +44,7 @@
         "basalt"
     ],
     "uuid": "23e9d171-efb9-46fc-926a-ea5c926027c0",
-    "versionLabel": "1.0",
+    "versionLabel": "1.1",
     "watchapp": {
         "watchface": true
     }
