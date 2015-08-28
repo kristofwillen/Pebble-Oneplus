@@ -35,7 +35,7 @@ static void update_time() {
     strcpy(textten, "");
     switch (minutes) {
       case 0 :
-        strcpy(textone, "o 'clock");
+        strcpy(textone, "o'clock");
         break;
       case 1 :
         strcpy(textone, " one");
